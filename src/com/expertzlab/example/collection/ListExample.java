@@ -22,6 +22,8 @@ public class ListExample {
         //List list = new Vector();
 
         list.add (new String ("AAAAA"));
+        list.add (new String ("AAAAA"));
+        list.add (new String ("BBBBB"));
         list.add (new String ("BBBBB"));
         list.add (new String ("CCCCC"));
         list.add (new Integer(10));

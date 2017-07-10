@@ -1,6 +1,11 @@
 package com.expertzlab;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -9,16 +14,20 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ *
+ */
 public class Main {
 
     static final String SOURCE_FILE= "students.txt";
-
+    static final String DESTINATION_FILE= "ranklist.txt";
 
     public static void main(String[] args) throws Exception {
-        List <String> lines = readFromFile(SOURCE_FILE);
+        List <String> lines = readFromFileIO(SOURCE_FILE);
         List<Student> students = createStudentList(lines);
-        Collections.sort(students,new NameComparator());
+        Collections.sort(students,new MarkComparator());
         System.out.println(students);
+        writeToFileIO(DESTINATION_FILE,students);
     }
 
 
@@ -28,6 +37,44 @@ public class Main {
         List<String> lines = Files.readAllLines(path);
         return lines;
     }
+
+    public static List<String> readFromFileIO(String filename) throws IOException{
+        List<String> lines = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lines.add(line);
+            }
+        }
+        return lines;
+    }
+
+
+    public static void writeToFile(String filename, List<Student> students) throws IOException{
+        Path path = Paths.get(filename);
+        Charset charset = Charset.forName("US-ASCII");
+        try (BufferedWriter writer = Files.newBufferedWriter(path, charset)) {
+            for (Student student :students)    {
+                writer.write(student.toString(), 0, student.toString().length());
+                writer.write("\n");
+            }
+        } catch (IOException x) {
+            System.err.format("IOException:", x);
+        }
+    }
+
+    public static void writeToFileIO(String filename, List<Student> students) throws IOException{
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (Student student :students)    {
+                writer.write(student.toString(), 0, student.toString().length());
+                writer.write("\n");
+            }
+        } catch (IOException x) {
+            System.err.format("IOException:", x);
+        }
+    }
+
+
 
     static List<Student>  createStudentList (List<String> lines){
         List <Student> students= new ArrayList<>();

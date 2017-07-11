@@ -13,7 +13,7 @@ public class HashSetExample {
     public static void main (String ...a){
 
         Set<String> set = new HashSet<>();
-        set.add("AAAA");
+        set.add(new String(""));
         set.add("AAAA");
         set.add("BBBB");
         set.add("BBBB");
@@ -22,13 +22,22 @@ public class HashSetExample {
         set.add("Some Test");
 
         //You can not see any deplicate.
-        printElements(set);
+        //printElements(set);
 
         Set<Student> students = new HashSet<>();
-        students.add(new Student(111,"AAA"));
-        students.add(new Student(111,"AAA"));
-        students.add(new Student(222,"BBB"));
-        students.add(new Student(222,"BBB"));
+        Student s1= new Student(111,"Vijeesh");
+        Student s2= new Student(111,"Vijeesh");
+        Student s3= new Student(222,"Krishna");
+        Student s4= new Student(222,"Krishna");
+
+
+        System.out.println(s1.equals(s2));
+        System.out.println(s1==s2);
+
+        students.add(s1);
+        students.add(s2);
+        students.add(s3);
+        students.add(s4);
 
         //See no deplicate.
         //See the output after commenting equals() and hashcode() method of Student class
@@ -87,5 +96,4 @@ class Student {
         result = 31 * result + name.hashCode();
         return result;
     }
-
 }

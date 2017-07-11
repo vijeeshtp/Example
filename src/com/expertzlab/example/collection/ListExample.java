@@ -15,10 +15,10 @@ public class ListExample {
 
         //List created with out generics
         //Any type of object is allowed to add to the list
-        List list = new ArrayList();
+       // List list = new ArrayList();
 
         //Below is some other implementations for lists
-        //List list = new LinkedList();
+        List list = new LinkedList();
         //List list = new Vector();
 
         list.add (new String ("AAAAA"));
@@ -36,6 +36,7 @@ public class ListExample {
         list1.add (new String ("Test1"));
         list1.add (new String ("Test2"));
         list1.add (new String ("Test3"));
+        //list1.add (new Integer(10));
         //Since the below line try to add another type of object in the list
         //The below line result in compile time error.
         //list1.add (new Integer(10));

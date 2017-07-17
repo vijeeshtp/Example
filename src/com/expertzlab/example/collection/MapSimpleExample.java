@@ -2,6 +2,7 @@ package com.expertzlab.example.collection;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by vijeesh on 10/07/17.
@@ -11,15 +12,18 @@ public class MapSimpleExample {
 
     public static void main (String ...a){
 
-        Map<Integer, Question> questionsMap= new HashMap<>();
+        Map<String, Question> questionsMap= new HashMap<>();
 
         Question q1 = new Question("What is ..?",1);
         Question q2 = new Question("Where is ...?",2);
         Question q3 = new Question("When is ...?",1);
 
-        questionsMap.put(1, q1 );
-        questionsMap.put(2, q2 );
-        questionsMap.put(3, q3 );
+        new Integer(10);
+        //questionsMap.put(new Integer(1), q1 );
+        //questionsMap.put(2, q2 );
+        //questionsMap.put(3, q3 );
+        questionsMap.put("aa", q1 );
+
 
         //Getting value object if we know the key
         System.out.println(questionsMap.get(1).question);
@@ -33,10 +37,11 @@ public class MapSimpleExample {
 
         //To see all the keys in the map
         System.out.println("Iterating all Keys in the Map");
-        for (Integer key :questionsMap.keySet()) {
+        for (String key :questionsMap.keySet()) {
             System.out.println(key);
         }
 
+        /*
         //To see all the values of the map
         System.out.println("Iterating all Values in the Map");
         for (Question value :questionsMap.values()) {
@@ -54,6 +59,7 @@ public class MapSimpleExample {
             System.out.println(entry.getValue().mark );
 
         }
+        */
 
     }
 

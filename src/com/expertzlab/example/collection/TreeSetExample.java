@@ -21,7 +21,7 @@ public class TreeSetExample {
         set.add("Some Test");
 
         //You can not see any deplicate. Aslo the output is SORTED
-        printElements(set);
+        //printElements(set);
 
 
         Set<Customer> customers = new TreeSet<>();
@@ -52,7 +52,7 @@ public class TreeSetExample {
 }
 
 
-class Customer  implements Comparable<Customer>{
+class Customer implements Comparable<Customer>  {
 
     int id;
     String name;

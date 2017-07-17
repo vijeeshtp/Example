@@ -1,6 +1,7 @@
 package com.expertzlab.example.collection;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -12,7 +13,7 @@ public class HashSetExample {
 
     public static void main (String ...a){
 
-        Set<String> set = new HashSet<>();
+        Set<String> set = new LinkedHashSet<>();
         set.add(new String(""));
         set.add("AAAA");
         set.add("BBBB");
@@ -22,7 +23,7 @@ public class HashSetExample {
         set.add("Some Test");
 
         //You can not see any deplicate.
-        //printElements(set);
+        printElements(set);
 
         Set<Student> students = new HashSet<>();
         Student s1= new Student(111,"Vijeesh");
